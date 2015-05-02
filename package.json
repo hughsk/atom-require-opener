@@ -7,7 +7,8 @@
   "scripts": {},
   "activationEvents": [
     "require-opener:open-selections-on-npm",
-    "require-opener:open-selections-on-github"
+    "require-opener:open-selections-on-github",
+    "require-opener:open-selections-in-atom"
   ],
   "author": {
     "name": "Hugh Kennedy",
@@ -15,6 +16,7 @@
     "url": "http://hughsk.io/"
   },
   "dependencies": {
+    "atom-message-panel": "^1.2.2",
     "atom-selected-requires": "^1.0.1",
     "opener": "^1.4.1",
     "relative-require-regex": "^1.0.1",

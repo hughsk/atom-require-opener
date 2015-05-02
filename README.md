@@ -2,7 +2,8 @@
 ![](http://img.shields.io/badge/stability-stable-green.svg?style=flat)
 
 Atom plugin for selecting one or more require statements and
-opening up their documentation on nodejs.org/GitHub/npm.
+opening up their documentation on nodejs.org/GitHub/npm or
+opening their target files.
 
 ![atom-require-opener](http://i.imgur.com/OcKso1Z.gif)
 
@@ -12,9 +13,11 @@ Open the Command Palette, and run one of the following commands:
 
 * Require Opener: Open Selection on Npm
 * Require Opener: Open Selection on Github
+* Require Opener: Open Selection in Atom
 
 Node.js core modules will be opened on nodejs.org's API
-documentation in both cases.
+documentation for the two former cases, and ignored in
+the latter case.
 
 ## Keybindings
 
@@ -25,6 +28,7 @@ keymap file and include something along the following lines:
 '.workspace':
   'cmd-ctrl-shift-alt-g': 'require-opener:open-selection-on-npm'
   'cmd-ctrl-shift-alt-n': 'require-opener:open-selection-on-github'
+  'cmd-ctrl-shift-alt-o': 'require-opener:open-selection-in-atom'
 ```
 
 ## License
