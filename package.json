@@ -23,7 +23,7 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git://github.com/hughsk/require-opener.git"
+    "url": "git://github.com/hughsk/atom-require-opener.git"
   },
   "keywords": [
     "npm",
@@ -34,8 +34,8 @@
     "homepage",
     "editor"
   ],
-  "homepage": "https://github.com/hughsk/require-opener",
+  "homepage": "https://github.com/hughsk/atom-require-opener",
   "bugs": {
-    "url": "https://github.com/hughsk/require-opener/issues"
+    "url": "https://github.com/hughsk/atom-require-opener/issues"
   }
 }
