@@ -1,0 +1,41 @@
+{
+  "name": "require-opener",
+  "version": "1.0.0",
+  "description": "Atom plugin for opening the currently selected require's page on npm",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {},
+  "activationEvents": [
+    "require-opener:open-selections-on-npm",
+    "require-opener:open-selections-on-github"
+  ],
+  "author": {
+    "name": "Hugh Kennedy",
+    "email": "hughskennedy@gmail.com",
+    "url": "http://hughsk.io/"
+  },
+  "dependencies": {
+    "atom-selected-requires": "^1.0.1",
+    "opener": "^1.4.1",
+    "relative-require-regex": "^1.0.1",
+    "resolve": "^1.1.6"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hughsk/require-opener.git"
+  },
+  "keywords": [
+    "npm",
+    "require",
+    "atom",
+    "resolve",
+    "module",
+    "homepage",
+    "editor"
+  ],
+  "homepage": "https://github.com/hughsk/require-opener",
+  "bugs": {
+    "url": "https://github.com/hughsk/require-opener/issues"
+  }
+}
