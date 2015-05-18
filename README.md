@@ -26,9 +26,9 @@ keymap file and include something along the following lines:
 
 ``` coffee
 '.workspace':
-  'cmd-ctrl-shift-alt-g': 'require-opener:open-selection-on-npm'
-  'cmd-ctrl-shift-alt-n': 'require-opener:open-selection-on-github'
-  'cmd-ctrl-shift-alt-o': 'require-opener:open-selection-in-atom'
+  'cmd-ctrl-shift-alt-g': 'require-opener:open-selections-on-npm'
+  'cmd-ctrl-shift-alt-n': 'require-opener:open-selections-on-github'
+  'cmd-ctrl-shift-alt-o': 'require-opener:open-selections-in-atom'
 ```
 
 ## License
