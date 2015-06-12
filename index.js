@@ -12,6 +12,7 @@ function activate() {
   atom.workspaceView.command('require-opener:open-selections-on-npm', open('npm'))
   atom.workspaceView.command('require-opener:open-selections-on-github', open('github'))
   atom.workspaceView.command('require-opener:open-selections-in-atom', open('file'))
+  atom.workspaceView.command('require-opener:open-selections-readmes', open('readme'))
 }
 
 function open(mode) {
@@ -27,6 +28,7 @@ function open(mode) {
     const resolve  = require('resolve')
     const opener   = require('opener')
     const path     = require('path')
+    const glob     = require('glob')
     const url      = require('url')
 
     try {
@@ -47,6 +49,57 @@ function open(mode) {
       return cores.indexOf(name) === -1
           && local.indexOf(name) === -1
     })
+
+    //
+    // Locate and open package READMEs
+    //
+    if (mode === 'readme') {
+      return remote.forEach(function(name) {
+        var dirname = path.dirname(filename)
+        var pkgFile = base(name) + '/package.json'
+
+        resolve(pkgFile, { basedir: dirname }, function(err, pkgFile) {
+          if (err) return error(err)
+
+          var pkgRoot = path.dirname(pkgFile)
+
+          // TODO: extract this into a module that's consistent
+          // with npm's own readme identification, so that npm
+          // can use it too:
+          // https://github.com/npm/read-package-json/blob/master/read-json.js#L193-L208
+          glob('{README,README.*}', {
+            cwd: pkgRoot,
+            nocase: true,
+            mark: true
+          }, function(err, readmes) {
+            if (err) return error(err)
+            if (!readmes.length) return error(
+              new Error('No READMEs found for ' + JSON.stringify(name))
+            )
+
+            var readme = readmes.sort(function(a, b) {
+              if (path.basename(a) === '.md') return +1
+              if (path.basename(b) === '.md') return -1
+              if (path.basename(a) === '.markdown') return +1
+              if (path.basename(b) === '.markdown') return -1
+              return 0
+            }).shift()
+
+
+            readme = path.join(pkgRoot, readme)
+
+            var options = {
+              searchAllPlanes: true,
+              split: atom.config.get('markdown-preview.openPreviewInSplitPane')
+                ? 'right'
+                : null
+            }
+
+            atom.workspace.open('markdown-preview://' + readme, options)
+          })
+        })
+      })
+    }
 
     //
     // Opening files in Atom:
@@ -81,7 +134,9 @@ function open(mode) {
 }
 
 function base(dir) {
-  return dir.split('/')[0]
+  return dir[0] === '@'
+    ? dir.split('/').slice(0, 2).join('/')
+    : dir.split('/')[0]
 }
 
 function error(err) {
