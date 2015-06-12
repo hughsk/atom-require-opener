@@ -5,12 +5,14 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {},
-  "activationEvents": [
-    "require-opener:open-selections-on-npm",
-    "require-opener:open-selections-on-github",
-    "require-opener:open-selections-in-atom",
-    "require-opener:open-selections-readmes"
-  ],
+  "activationCommands": {
+    "atom-text-editor": [
+      "require-opener:open-selections-on-npm",
+      "require-opener:open-selections-on-github",
+      "require-opener:open-selections-in-atom",
+      "require-opener:open-selections-readmes"
+    ]
+  },
   "author": {
     "name": "Hugh Kennedy",
     "email": "hughskennedy@gmail.com",

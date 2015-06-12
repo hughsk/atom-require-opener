@@ -9,18 +9,16 @@ function activate() {
     title: 'Require Opener'
   })
 
-  atom.workspaceView.command('require-opener:open-selections-on-npm', open('npm'))
-  atom.workspaceView.command('require-opener:open-selections-on-github', open('github'))
-  atom.workspaceView.command('require-opener:open-selections-in-atom', open('file'))
-  atom.workspaceView.command('require-opener:open-selections-readmes', open('readme'))
+  atom.commands.add('atom-text-editor', 'require-opener:open-selections-on-npm', open('npm'))
+  atom.commands.add('atom-text-editor', 'require-opener:open-selections-on-github', open('github'))
+  atom.commands.add('atom-text-editor', 'require-opener:open-selections-in-atom', open('file'))
+  atom.commands.add('atom-text-editor', 'require-opener:open-selections-readmes', open('readme'))
 }
 
 function open(mode) {
   return function() {
-    const editor   = atom.workspace.getActiveEditor()
+    const editor   = atom.workspace.getActiveTextEditor()
     const filename = editor.getPath()
-
-    messages.clear()
 
     const Selected = require('atom-selected-requires')
     const relative = require('relative-require-regex')
