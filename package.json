@@ -38,7 +38,13 @@
     "resolve",
     "module",
     "homepage",
-    "editor"
+    "editor",
+    "readme",
+    "github",
+    "open",
+    "node",
+    "browserify",
+    "markdown"
   ],
   "homepage": "https://github.com/hughsk/atom-require-opener",
   "bugs": {
