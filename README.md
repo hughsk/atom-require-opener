@@ -14,6 +14,7 @@ Open the Command Palette, and run one of the following commands:
 * Require Opener: Open Selection on Npm
 * Require Opener: Open Selection on Github
 * Require Opener: Open Selection in Atom
+* Require Opener: Open Selection's README
 
 Node.js core modules will be opened on nodejs.org's API
 documentation for the two former cases, and ignored in
@@ -29,6 +30,7 @@ keymap file and include something along the following lines:
   'cmd-ctrl-shift-alt-g': 'require-opener:open-selections-on-npm'
   'cmd-ctrl-shift-alt-n': 'require-opener:open-selections-on-github'
   'cmd-ctrl-shift-alt-o': 'require-opener:open-selections-in-atom'
+  'cmd-ctrl-shift-alt-r': 'require-opener:open-selections-readmes'
 ```
 
 ## License
