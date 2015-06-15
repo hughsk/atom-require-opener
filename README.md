@@ -25,7 +25,7 @@ To add your own keybindings for this package, simply open your
 keymap file and include something along the following lines:
 
 ``` coffee
-'.atom-workspace':
+'atom-workspace':
   'cmd-ctrl-shift-alt-g': 'require-opener:open-selections-on-npm'
   'cmd-ctrl-shift-alt-n': 'require-opener:open-selections-on-github'
   'cmd-ctrl-shift-alt-o': 'require-opener:open-selections-in-atom'
