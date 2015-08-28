@@ -1,6 +1,6 @@
 {
   "name": "require-opener",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "description": "Atom plugin for opening the currently selected require's page on npm",
   "main": "index.js",
   "license": "MIT",
